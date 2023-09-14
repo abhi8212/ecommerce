@@ -6,9 +6,8 @@ const Mail = async (email,verificationToken) => {
           from: 'abhishekra213@gmail.com',
           to: 'abhishekra000005@gmail.com',
           subject: 'Hello from Node.js',
-          text: `Click the following link to verify your email: http://localhost:7000/${verificationToken}`,
+          text: `Click the following link to verify your email: http://localhost:7000/api/v1/verify/${verificationToken}`,
         }
-
 
         sendEmailWithRetry(mailOptions,3);
       } catch (error) {

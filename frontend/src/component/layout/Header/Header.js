@@ -21,6 +21,7 @@ function Navbar() {
       <li><Link to="/products">Products</Link></li>
       <li><Link to="/product/search">Search</Link></li>
       <li><Link to="/">Cart</Link></li>
+      <li><Link to="/login">Login</Link></li>
       <li><Link to="/">Contact</Link></li>
       </ul>
       <div className="hamburger" onClick={toggleNavbar}>
@@ -31,5 +32,4 @@ function Navbar() {
     </nav>
   );
 }
-
 export default Navbar;

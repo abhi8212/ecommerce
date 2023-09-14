@@ -2,6 +2,7 @@
 const app = require("./app");
 const dotenv = require("dotenv");
 const axios =require("axios");
+const cloudinary =require("cloudinary");
 dotenv.config({ path: "config/config.env" });
 //uncought error
 process.on("uncaughtException",(err)=> {
@@ -18,9 +19,14 @@ const connectDatabase = require('./config/database.js');
 
 connectDatabase();
 
+cloudinary.config({
+    cloud_name:process.env.CLOUD_NAME, 
+  api_key:process.env.API_KEY, 
+  api_secret:process.env.API_SECRET
+});
+
 //why instead of 6000 process.env.PORT is not working
 const PORT = process.env.PORT || 7000;
-
 app.listen(7000, () => {
     console.log(`server is working on http://localhost:${process.env.PORT}`)
 })

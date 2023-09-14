@@ -17,6 +17,8 @@ nav {
     background-color: rgba(5, 3, 3, 0.941); 
     color: #f7f1f1;
     padding: 10px 20px;
+    position: sticky;
+    top: 0;
 }
 
 .logo a {

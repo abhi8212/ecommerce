@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import './Home.css'
 import {getproduct} from "../../actions/productActions"
 import {useSelector,useDispatch} from "react-redux"
-import Product from "./ProductCard.js"
+import ProductCard from "./ProductCard.js"
 //import { CgMouse } from "react-icons/all";
 import { CgMouse } from "react-icons/cg";
 
@@ -30,10 +30,9 @@ const Home = () => {
           <h2 className="homeHeading">Featured Products</h2>
           
           <div className='container' id='container'>
-       {products && products.map((product)=> <Product key={product._id} product={product}></Product>)}
+       {products && products.map((product)=> <ProductCard key={product._id} product={product}></ProductCard>)}
         </div> 
     </div>
   )
 }
-
 export default Home

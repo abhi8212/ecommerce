@@ -1,77 +1,104 @@
+/* Base Footer Styles */
 footer {
-    margin-top: 10vmax;
-    padding: 2vmax;
-    background-color: rgb(34, 33, 33);
-    color: white;
-    display: flex;
-    align-items: center;
-     /* Change to absolute positioning */
-    bottom: 0;
-    width: 100%; /* Add this line to make it full-width */
-  }
-  
-  .leftFooter {
-    width: 20%;
-    display: flex;
-  
+  padding: 2vmax;
+  background-color: rgb(34, 33, 33);
+  color: white;
+  display: flex;
+  align-items: center;
+  /* Change to absolute positioning */
+  position: relative;
+  bottom: 0;
+  width: 100%; /* Add this line to make it full-width */
+}
+
+/* Left Footer */
+.leftFooter {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.leftFooter > h4 {
+  font-family: "Roboto";
+  font-size: 1.5vmax; /* Increased font size for better visibility */
+  margin-bottom: 1vmax; /* Added margin for spacing */
+}
+
+.leftFooter > p {
+  text-align: center;
+  font-size: 1.2vmax;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin: 1vmax 0; /* Added vertical margin for spacing */
+}
+
+.leftFooter > img {
+  width: 10vmax;
+  margin: 1vmax;
+  cursor: pointer;
+}
+
+/* Middle Footer */
+.midFooter {
+  width: 60%;
+  text-align: center;
+}
+
+.midFooter > h1 {
+  font-size: 4vmax;
+  font-family: "Roboto";
+  color: #eb4034;
+  margin-top: 1vmax; /* Added margin for spacing */
+}
+
+.midFooter > p {
+  max-width: 80%; /* Increased maximum width for readability */
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin: 1vmax auto;
+  font-size: 1.1vmax; /* Slightly increased font size */
+}
+
+/* Right Footer */
+.rightFooter {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rightFooter > h4 {
+  font-family: "Roboto";
+  font-size: 1.6vmax; /* Increased font size for better visibility */
+  text-decoration: underline;
+  margin-bottom: 1vmax; /* Added margin for spacing */
+}
+
+.rightFooter > a {
+  text-decoration: none;
+  font-size: 1.3vmax;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: white;
+  transition: color 0.5s, transform 0.2s; /* Added a subtle transform animation */
+  margin: 0.5vmax;
+}
+
+.rightFooter > a:hover {
+  color: #eb4034;
+  transform: scale(1.1); /* Zoom in slightly on hover */
+}
+
+/* Media Query for Responsiveness */
+@media screen and (max-width: 768px) {
+  footer {
     flex-direction: column;
     align-items: center;
   }
-  .leftFooter > h4 {
-    font-family: "Roboto";
-    font-size: 1vmax;
-  }
-  .leftFooter > p {
-    text-align: center;
-    font-size: 1.2vmax;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  }
-  .leftFooter > img {
-    width: 10vmax;
-    margin: 1vmax;
-    cursor: pointer;
-  }
-  
-  .midFooter {
-    width: 60%;
-  
-    text-align: center;
-  }
-  
-  .midFooter > h1 {
-    font-size: 4vmax;
-    font-family: "Roboto";
-    color: #eb4034;
-  }
-  .midFooter > p {
-    max-width: 60%;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-    margin: 1vmax auto;
-  }
-  
+
+  .leftFooter,
+  .midFooter,
   .rightFooter {
-    width: 20%;
-  
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2vmax; /* Added margin for spacing between sections */
   }
-  .rightFooter > h4 {
-    font-family: "Roboto";
-    font-size: 1.4vmax;
-    text-decoration: underline;
-  }
-  .rightFooter > a {
-    text-decoration: none;
-    font-size: 1.3vmax;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-    color: white;
-    transition: all 0.5s;
-    margin: 0.5vmax;
-  }
-  
-  .rightFooter > a:hover {
-    color: #eb4034;
-  }
-  
+}

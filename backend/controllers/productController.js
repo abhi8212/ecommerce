@@ -14,21 +14,39 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
     })
 });
 
-//to getting all products;
-exports.getAllProducts = catchAsyncErrors(async (req, res) => {
-   //to search product
-   const resultPerPage =4;
-   const productCount = await Product.countDocuments();
-   const apiFeature=new ApiFeatures(Product.find(),req.query).search().filter().pagination(resultPerPage);
+//to getting all products
+exports.getAllProducts = async (req, res) => {
+    try {
+        const resultPerPage = 4;
+        const productsCount = await Product.countDocuments();
 
-    const products = await apiFeature.query;
-    res.status(200).json({
-        success: true,
-        products,
-        productCount,
-        resultPerPage
-    })
-});
+        // Assuming that req.query contains filtering and search parameters
+        // You should customize the ApiFeatures class as needed
+        const apiFeature = new ApiFeatures(Product.find(), req.query)
+            .search()
+            .filter()
+            .pagination(resultPerPage);
+
+        const products = await apiFeature.query;
+
+        const filteredProductsCount = products.length;
+
+        res.status(200).json({
+            success: true,
+            products,
+            productsCount,
+            resultPerPage,
+            filteredProductsCount,
+        });
+    } catch (error) {
+        console.error("Error retrieving products:", error);
+        res.status(500).json({
+            success: false,
+            message: "Internal server error",
+        });
+    }
+};
+
 //getting single product;
 exports.getProductDetails = catchAsyncErrors(async (req, res, next) => {
 
